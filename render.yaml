@@ -25,10 +25,7 @@ services:
     staticPublishPath: dist
     envVars:
       - key: VITE_API_URL
-        fromService:
-          type: web
-          name: givebridge-api
-          property: host
+        value: https://givebridge.onrender.com
     routes:
       - type: rewrite
         source: /*
