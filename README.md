@@ -99,6 +99,18 @@ npm install
 npm run dev
 ```
 
+## Deploy on Render
+
+The root [render.yaml](./render.yaml) Blueprint defines a static frontend and an Express API. The API requires a MongoDB Atlas connection string; the Blueprint generates `JWT_SECRET` for you.
+
+1. Create a MongoDB Atlas cluster and database user. Configure Atlas network access to allow the Render API to connect; use a restricted allowlist where your plan and network setup support it.
+2. In Render, choose **New → Blueprint**, connect this GitHub repository, and apply the Blueprint.
+3. Enter the Atlas connection string for `MONGODB_URI` when prompted. Keep database credentials private and only enter them in Render.
+4. Wait for both services to deploy. The frontend is served from `givebridge-web.onrender.com`; the API health check is at `/api/health`.
+5. To enable the admin dashboard, configure `ADMIN_EMAIL` and a unique `ADMIN_PASSWORD` of at least 12 characters for the API, then run `npm run seed` once from the API service's shell. Do not use shared or example credentials.
+
+The free Render API service may spin down after inactivity, so its first request after a pause can be delayed. For local development, copy `.env.example` to `.env` in the repository root and set the variables you need.
+
 ## Auth and Roles
 
 - Admin: seed-only account, not public signup

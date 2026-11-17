@@ -17,6 +17,10 @@ const adminRoutes = require('./routes/adminRoutes');
 
 dotenv.config({ path: '../.env' });
 
+if (process.env.NODE_ENV === 'production' && !process.env.JWT_SECRET) {
+  throw new Error('JWT_SECRET must be set in production');
+}
+
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
