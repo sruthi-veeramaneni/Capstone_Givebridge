@@ -99,6 +99,8 @@ npm install
 npm run dev
 ```
 
+The frontend uses `https://givebridge.onrender.com` by default. To use a local API instead, set `VITE_API_URL=http://127.0.0.1:5001` in the repository-root `.env` file.
+
 ## Deploy on Render
 
 The root [render.yaml](./render.yaml) Blueprint defines a static frontend and an Express API. The API requires a MongoDB Atlas connection string; the Blueprint generates `JWT_SECRET` for you.

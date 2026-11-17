@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const configuredApiUrl = import.meta.env.VITE_API_URL || 'http://127.0.0.1:5001';
+const configuredApiUrl = import.meta.env.VITE_API_URL || 'https://givebridge.onrender.com';
 const apiOrigin = /^https?:\/\//i.test(configuredApiUrl)
   ? configuredApiUrl
   : `https://${configuredApiUrl}`;
